@@ -1,0 +1,24 @@
+<%= render '/shared/banner' %>
+
+<div class="container">
+  <div class="cards">
+    <% @maisons.each do |maison| %>
+    <div class="card-trip">
+      <img src="https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-07/01-renovation-maison-de-campagne.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2> <%= maison.name %>  </h2>
+          <div class="div mt-2">
+          <p>Surface: <%=maison.surface%> m2 </p>
+          <p>Capacité: <%=maison.capacity%> personnes </p>
+          <p><%=maison.chambre%> chambres</p>
+          <p>Vue: <%=maison.view%></p>
+          </div>
+        </div>
+        <h2 class="card-trip-pricing"><%=maison.price%> € /nuit</h2>
+        <img src="https://media-exp1.licdn.com/dms/image/C5603AQHXi37yLqhpWQ/profile-displayphoto-shrink_200_200/0/1586184296924?e=1652918400&v=beta&t=PbPUkerWjaqQuQbE-gJvU51SeBNTpssl7hsU1L6p6dM" class="card-trip-user avatar-bordered" />
+      </div>
+    </div>
+    <%end %>
+  </div>
+</div>
