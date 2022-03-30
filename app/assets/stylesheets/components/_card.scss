@@ -14,7 +14,7 @@
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 230px;
   width: 100%;
   object-fit: cover;
 }
@@ -23,6 +23,11 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+}
+
+.link-without-style{
+  text-decoration: none;
+  color: black;
 }
 
 .card-trip p {

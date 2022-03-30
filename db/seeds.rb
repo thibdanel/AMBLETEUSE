@@ -6,20 +6,38 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+require "open-uri"
 puts "deleting all users and maisons"
+Review.destroy_all
 User.destroy_all
 Maison.destroy_all
 
 puts "creating users"
 user1 = User.create(first_name: "Thibault", last_name: "Danel", password: "azerty", email: "thibault@mail.com")
 
+puts "creating reviews"
+
+# review1 = Review.create(content: 'Super séjour, super acceuil des proprio, maison top qualité, merci aux Danel', rating: 5)
+# review2 = Review.create(content: 'Super séjour, super acceuil des proprio, maison top qualité, merci aux Danel', rating: 4)
+# review3 = Review.create(content: 'Super séjour, super acceuil des proprio, maison top qualité, merci aux Danel', rating: 5)
+
 puts "creating maisons"
 
-# file1 = URI.open('https://www.ouestfrance-auto.com/p/yahooto/2073895_644460_1_fde73431e923dea035f7619a70c6e23d07e06f55_w_ouestfranceauto_.jpg')
+file1 = File.open(Rails.root.join('app/assets/images/bleuse.png'))
+puts 'file1 ok'
 maison1 = Maison.new(name: "La Friendly", surface: 150, capacity: 12, view: "garden", chambre: 6, available: true, user: user1, price: 180)
+puts 'maison1 ok'
+maison1.photo.attach(io: file1, filename: 'nes.png', content_type: 'image/png')
+puts 'photo ok'
+
+file2 = URI.open('https://i.f1g.fr/media/eidos/805x604_crop/2020/04/27/XVM6fdd6896-8650-11ea-bef4-6835ce68601a-805x604.jpg')
 maison2 = Maison.new(name: "la familliale", surface: 80, capacity: 6, view: "mer", chambre: 3, available: true, user: user1, price: 135)
+maison2.photo.attach(io: file2, filename: 'nes.png', content_type: 'image/png')
+
+file3 = URI.open('https://d36vnx92dgl2c5.cloudfront.net/cache/prod/Danielfeau/1/media/72e66bf0a444ddd432d9782ecd89ddf9.jpg')
 maison3 = Maison.new(name: "la Grange", surface: 90, capacity: 6, view: "mer", chambre: 4, available: true, user: user1, price: 125)
+maison3.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
+
 
 maison1.save
 maison2.save
