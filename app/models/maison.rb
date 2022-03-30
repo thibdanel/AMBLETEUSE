@@ -1,0 +1,2 @@
+class Maison < ApplicationRecord
+end
