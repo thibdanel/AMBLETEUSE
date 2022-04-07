@@ -51,3 +51,74 @@
   top: -20px;
   width: 40px;
 }
+
+//SHOW
+
+.card-trip-show {
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 3px;
+}
+
+.card-trip-show > img {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: space-around;
+  margin: 2px;
+}
+
+.card-trip-show h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.card-trip-show p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip-show .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos-show .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+
+.review{
+
+  border: solid;
+  margin: 3px;
+  border-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  background-color: white;
+}
+
+.review > h3{
+
+  margin: 14px;
+  text-align: center;
+  color: grey;
+}
+
+.review > ul{
+
+  margin-top: 5px;
+  color: gray;
+}
