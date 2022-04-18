@@ -30,11 +30,11 @@ puts 'maison1 ok'
 maison1.photo.attach(io: file1, filename: 'nes.png', content_type: 'image/png')
 puts 'photo ok'
 
-file2 = URI.open('https://i.f1g.fr/media/eidos/805x604_crop/2020/04/27/XVM6fdd6896-8650-11ea-bef4-6835ce68601a-805x604.jpg')
+file2 = File.open(Rails.root.join('app/assets/images/parentale.jpg'))
 maison2 = Maison.new(name: "la familliale", surface: 80, capacity: 6, view: "mer", chambre: 3, available: true, user: user1, price: 135)
 maison2.photo.attach(io: file2, filename: 'nes.png', content_type: 'image/png')
 
-file3 = URI.open('https://d36vnx92dgl2c5.cloudfront.net/cache/prod/Danielfeau/1/media/72e66bf0a444ddd432d9782ecd89ddf9.jpg')
+file3 = File.open(Rails.root.join('app/assets/images/ado.jpg'))
 maison3 = Maison.new(name: "la Grange", surface: 90, capacity: 6, view: "mer", chambre: 4, available: true, user: user1, price: 125)
 maison3.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
 
