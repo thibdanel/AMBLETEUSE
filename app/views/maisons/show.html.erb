@@ -1,46 +1,46 @@
 <%= render '/shared/banner' %>
 
-
 <div class="container-show">
-      <div class="card-trip-show col-9">
-        <%= cl_image_tag(@maison.photo.key, height: 300, width: 400, crop: :fill) %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%=@maison.name %></h2>
-            <div class="div mt-2">
-              <p>Surface: <%=@maison.surface%> m2 </p>
-              <p>Capacité: <%=@maison.capacity%> personnes </p>
-              <p><%=@maison.chambre%> chambres</p>
-              <p>Vue: <%=@maison.view%></p>
-            </div>
-          </div>
-          <h2 class="card-trip-pricing"><%=@maison.price%> € /nuit</h2>
-          <img src="https://media-exp1.licdn.com/dms/image/C5603AQHXi37yLqhpWQ/profile-displayphoto-shrink_200_200/0/1586184296924?e=1652918400&v=beta&t=PbPUkerWjaqQuQbE-gJvU51SeBNTpssl7hsU1L6p6dM" class="card-trip-user avatar-bordered" />
-        </div>
-        <%= link_to 'Commentaire', new_maison_review_path(@maison), class: 'btn btn-primary' %>
-        <% if @maison.reviews.count > 0 %>
-      <p>Rating: <%= @average_rating.truncate(1) %>/5 -- <%=@maison.reviews.count%> comments</p>
-        <div class="reviews">
-          <p>
-            <% Review::AUTHORIZED_RATINGS.each do |number| %>
-            <% count = 0 %>
-            <% break if count > 1 %>
-            <i class="fa<%= (number > @average_rating) ? 'r' : 's' %> fa-star"></i>
-            <% count += 1%>
-            <% end %>
-          </p>
-          <% else %>
-            <p>No ratings yet</p>
-          <% end %>
+  <div class="card-trip-show col-9">
+    <%= cl_image_tag(@maison.photo.key, height: 300, width: 400, crop: :fill) %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%=@maison.name %></h2>
+        <div class="div mt-2">
+          <p>Surface: <%=@maison.surface%> m2 </p>
+          <p>Capacité: <%=@maison.capacity%> personnes </p>
+          <p><%=@maison.chambre%> chambres</p>
+          <p>Vue: <%=@maison.view%></p>
         </div>
       </div>
-
-    <div class="review col-3">
-      <h3>Avis voyageurs</h3>
-      <ul>
-      <% @maison.reviews.each do |review| %>
-        <li><%= review.content %>  </li>
-      <%end %>
-      </ul>
+      <h2 class="card-trip-pricing"><%=@maison.price%> € /nuit</h2>
+      <img src="https://media-exp1.licdn.com/dms/image/C5603AQHXi37yLqhpWQ/profile-displayphoto-shrink_200_200/0/1586184296924?e=1652918400&v=beta&t=PbPUkerWjaqQuQbE-gJvU51SeBNTpssl7hsU1L6p6dM" class="card-trip-user avatar-bordered" />
+    <div class="div">
+      <%= link_to 'Commentaire', new_maison_review_path(@maison), class: 'btn btn-primary' %>
+      <% if @maison.reviews.count > 0 %>
+      <p>Rating: <%= @average_rating.truncate(1) %>/5 -- <%=@maison.reviews.count%> comments</p>
+      <div class="reviews">
+        <p>
+          <% Review::AUTHORIZED_RATINGS.each do |number| %>
+          <% count = 0 %>
+          <% break if count > 1 %>
+          <i class="fa<%= (number > @average_rating) ? 'r' : 's' %> fa-star"></i>
+          <% count += 1%>
+          <% end %>
+        </p>
+        <% else %>
+          <p>No ratings yet</p>
+        <% end %>
+      </div>
     </div>
+  </div>
+</div>
+  <div class="review col-3">
+    <h3>Avis voyageurs</h3>
+    <ul>
+    <% @maison.reviews.each do |review| %>
+      <li><%= review.content %>  </li>
+    <%end %>
+    </ul>
+  </div>
 </div>

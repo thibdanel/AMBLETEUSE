@@ -2,14 +2,20 @@
 
 <div class="container">
 
-<%= form_tag maisons_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a house"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+  <div class="search">
+    <div class="search-barre">
+      <%= form_tag maisons_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a house"
+        %>
+    </div>
+      <div class="bouton-submit">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
 
   <div class="cards">
     <% @maisons.each do |maison| %>
